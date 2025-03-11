@@ -10,7 +10,6 @@ Created on Mon Mar 10 20:43:20 2025
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
-import pdsmodulos as pds
 
 #Defino variables
 A= 1  #Volts
@@ -30,3 +29,7 @@ xx, tt = mi_funcion_sen(A, Vm, f0, fase, N, fs)
 
 # Grafico la señal
 plt.plot(tt, xx)
+
+from scipy import signal
+t = np.linspace(0, 1, 10)
+plt.plot(t, signal.square(2 * np.pi * 5 * t))
