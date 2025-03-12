@@ -30,6 +30,4 @@ xx, tt = mi_funcion_sen(A, Vm, f0, fase, N, fs)
 # Grafico la señal
 plt.plot(tt, xx)
 
-from scipy import signal
-t = np.linspace(0, 1, 10)
-plt.plot(t, signal.square(2 * np.pi * 5 * t))
+
