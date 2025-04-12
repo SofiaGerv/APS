@@ -151,17 +151,17 @@ omega_vf=arg_vf*df
 omega_vb=arg_vb*df
 omega_vh=arg_vh*df
 
-plt.figure()
-plt.hist(omega_vs, bins=10, color='red', alpha=0.5, label='Box')
-plt.hist(omega_vf, bins=10, color='purple', alpha=0.5, label='Ventana Flattop')
-plt.hist(omega_vb, bins=10, color='green', alpha=0.5, label='Ventana Blackman Harris')
-plt.hist(omega_vh, bins=10, color='orange', alpha=0.5, label='Ventana Hann')
+# plt.figure()
+# plt.hist(omega_vs, bins=10, color='yellow', alpha=0.5, label='Box')
+# plt.hist(omega_vf, bins=10, color='purple', alpha=0.5, label='Ventana Flattop')
+# plt.hist(omega_vb, bins=10, color='green', alpha=0.5, label='Ventana Blackman Harris')
+# plt.hist(omega_vh, bins=10, color='orange', alpha=0.5, label='Ventana Hann')
 
-plt.title('Histograma')
-plt.xlabel('Omega')
-plt.ylabel('Frecuencia')
-plt.legend()
-plt.show()
+# plt.title('Histograma')
+# plt.xlabel('Omega')
+# plt.ylabel('Frecuencia')
+# plt.legend()
+# plt.show()
 
 #%%Calculo de la Varianza y el Sesgo de Ω1
 sesgo_o1_box=np.mean(omega_vs-f1)
