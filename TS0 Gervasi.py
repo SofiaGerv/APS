@@ -10,11 +10,11 @@ import matplotlib.pyplot as plt
 
 
 #Defino variables
-A= 2  #Volts ; Energia=A^2/2
+vmax= 2  #Volts ; Energia=A^2/2
 dc = 0  #Volts
-f0 = 10  #Hz
-fase = 0 #Radianes
-N = 1000
+ff = 10  #Hz
+ph = 0 #Radianes
+nn = 1000 # N
 fs = 1000 #Hz
 ## 1/fs=Ts 
 
@@ -22,23 +22,22 @@ fs = 1000 #Hz
 ## En nyquist va a haber 2N/fs muestras, como N=fs, vamos a tener 2 muestras por periodo
 
 #Defino la funcion
-def mi_funcion_sen(A, dc, f0, fase, N, fs):
-    tt= np.linspace(0,(N-1)*(1/fs),N)
-    xx = A* np.sin(2 * np.pi * f0 * tt + fase) + dc
+def mi_funcion_sen(vmax, dc, ff, ph, nn, fs):
+    tt= np.linspace(0,(nn-1)*(1/fs),nn)
+    xx = vmax* np.sin(2 * np.pi * ff * tt + ph) + dc
     return xx, tt
 
-xx, tt = mi_funcion_sen(A, dc, f0, fase, N, fs)
+xx, tt = mi_funcion_sen(vmax, dc, ff, ph, nn, fs)
 
-potencia=(1/N)*np.sum(xx**2)
 
 # Grafico la señal
 plt.figure(1)
 plt.plot(tt, xx)
 
 ## Grafico para f0=500 Hz (Nyquist)
-f0=500
+ff=500
 
-xx, tt = mi_funcion_sen(A, dc, f0, fase, N, fs)
+xx, tt = mi_funcion_sen(vmax, dc, ff, ph, nn, fs)
 
 plt.figure(2)
 plt.plot(tt, xx,':o')
@@ -46,25 +45,25 @@ plt.plot(tt, xx,':o')
 ## Como la fase es 0, los dos unicos puntos que deberia ver son los ceros del seno. Si cambio la fase, por ejemplo a pi/2, deberia ver los maximos 
 
 ## Grafico para f0=999 Hz
-f0=999
+ff=999
 
-xx, tt = mi_funcion_sen(A, dc, f0, fase, N, fs)
+xx, tt = mi_funcion_sen(vmax, dc, ff, ph, nn, fs)
 
 plt.figure(3)
 plt.plot(tt, xx)
 
 ## Grafico para f0=1001 Hz
-f0=1001
+ff=1001
 
-xx, tt = mi_funcion_sen(A, dc, f0, fase, N, fs)
+xx, tt = mi_funcion_sen(vmax, dc, ff, ph, nn, fs)
 
 plt.figure(4)
 plt.plot(tt, xx)
 
 ## Grafico para f0=2001 Hz
-f0=2001
+ff=2001
 
-xx, tt = mi_funcion_sen(A, dc, f0, fase, N, fs)
+xx, tt = mi_funcion_sen(vmax, dc, ff, ph, nn, fs)
 
 plt.figure(5)
 plt.plot(tt, xx)
