@@ -76,11 +76,18 @@ xx, tt = mi_funcion_sen(vmax, dc, ff, ph, nn, fs)
 
 
 # # %% Pulso rectangular de 10ms
-# x4=np.zeros_like(tt)
-# x4[500:511]=1
+x4=np.zeros_like(tt)
+np=(10**(-3)*fs)
+x4[:200]=1
 
-# plt.figure()
-# plt.plot(x4)
+#E=(1/nn)*np.sum(x4**2)
+
+plt.figure()
+#plt.title('Pulso de 10ms, con ∆T={:f}, N={:d} y E={:f}'.format(Ts,nn,E))
+plt.plot(tt, x4, color='black', label='x4')
+plt.xlabel("Tiempo [s]")
+plt.ylabel("Tensión [V]")
+plt.legend()
 
 # #%% Verificar ortogonalidad entre la primera señal y las demás
 # o=np.inner(xx,xx)
@@ -128,18 +135,18 @@ xx, tt = mi_funcion_sen(vmax, dc, ff, ph, nn, fs)
 # plt.plot(Rxx4,color='black',label='Rxx4')
 # plt.legend()
 
-#%%
-zz=2*np.sin(10000*tt)*np.sin(5000*tt)
-yy=np.cos(10000*tt-5000*tt)-np.cos(10000*tt+5000*tt)
+# #%%
+# zz=2*np.sin(10000*tt)*np.sin(5000*tt)
+# yy=np.cos(10000*tt-5000*tt)-np.cos(10000*tt+5000*tt)
 
-plt.figure()
-plt.title('Comparación de la señales con  α= ω1⋅t, β= ω2⋅t, ω1=10000 y ω2=5000')
-plt.subplot(211)
-plt.plot(tt, zz, color='tab:olive',label='2⋅sin(α)⋅sin(β)')
-plt.legend()
-plt.subplot(212)
-plt.plot(tt, yy, color='tab:blue', label='cos(α−β)−cos(α+β)')
-plt.legend()
+# plt.figure()
+# plt.title('Comparación de la señales con  α= ω1⋅t, β= ω2⋅t, ω1=10000 y ω2=5000')
+# plt.subplot(211)
+# plt.plot(tt, zz, color='tab:olive',label='2⋅sin(α)⋅sin(β)')
+# plt.legend()
+# plt.subplot(212)
+# plt.plot(tt, yy, color='tab:blue', label='cos(α−β)−cos(α+β)')
+# plt.legend()
 
 
 
